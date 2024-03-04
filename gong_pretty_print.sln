@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "gong_pretty_print", "gong_pretty_print\gong_pretty_print.pyproj", "{68F28F83-A0CC-47D0-AE31-239687D1A61C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68F28F83-A0CC-47D0-AE31-239687D1A61C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F28F83-A0CC-47D0-AE31-239687D1A61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0D584D8-27CF-40AE-8F24-0F5B3D6C3CFF}
+	EndGlobalSection
+EndGlobal
