@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/gong_pretty_print/HTMLs
+/gong_pretty_print/PDFs
+*.csv
+/gong_pretty_print/PDFs.zip
