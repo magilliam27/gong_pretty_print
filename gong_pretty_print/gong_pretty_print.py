@@ -22,7 +22,7 @@ def remove_service_trade_participants(html_content):
 
     return str(soup)
 
-def auto_print_to_pdfs(playwright):
+def auto_print_to_html(playwright):
     browser_type = playwright.chromium
     browser = browser_type.launch(headless=False)  # Consider setting headless to True for automation without GUI
     context = browser.new_context()
@@ -33,6 +33,7 @@ def auto_print_to_pdfs(playwright):
     # 2. Primary Landing: Login
     login_url = 'https://app.gong.io/welcome/sign-in'
     page.goto(login_url)
+    
     
     print("Login manually using your account. After logging in, press Enter here to continue.")
     input("After you've logged in and are ready to proceed, press Enter...")
@@ -57,16 +58,30 @@ def auto_print_to_pdfs(playwright):
             directory = os.path.dirname(html_filename)
             if not os.path.exists(directory):
                 os.makedirs(directory)
-            # Capture the page as HTML
+             # Capture the page as HTML
             html_content = page.content()
             # Remove ServiceTrade participants from HTML content
             modified_html_content = remove_service_trade_participants(html_content)
             with open(html_filename, 'w') as f:
                 f.write(modified_html_content)
 
+            # Create a new page with the modified HTML content
+            modified_page = context.new_page()
+            modified_page.set_content(modified_html_content)
+
+            # Save the modified page as a PDF
+            pdf_filename = f"PDFs/call_transcript_{call_id}.pdf"
+            print(f"Saving PDF as: {pdf_filename}")
+            modified_page.pdf(path=pdf_filename)
+
+            # Clean up
+            modified_page.close()
+
+
     # Clean up
     context.close()
     browser.close()
 
 with sync_playwright() as playwright:
-    auto_print_to_pdfs(playwright)
+    auto_print_to_html(playwright)
+
