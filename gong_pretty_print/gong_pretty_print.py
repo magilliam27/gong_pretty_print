@@ -43,7 +43,7 @@ def auto_print_to_html(playwright):
         csv_reader = csv.reader(csvfile)
         for row in csv_reader:
             call_id = row[0]
-            target_url = f"https://us-21176.app.gong.io/call/pretty-transcript?call-id={call_id}"
+            target_url = f"{call_id}"
             print(f"Processing: {target_url}")
             page.goto(target_url)
 
